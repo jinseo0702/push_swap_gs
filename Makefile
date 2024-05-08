@@ -3,62 +3,40 @@ CFLAG = -Wall -Wextra -Werror
 AR = ar -rcs
 RM = rm -rf
 
-# SRCS = ft_isalnum.c \
-# 	ft_isalpha.c \
-# 	ft_isascii.c \
-# 	ft_atoi.c \
-# 	ft_bzero.c \
-# 	ft_isprint.c \
-# 	ft_isdigit.c \
-# 	ft_memchr.c \
-# 	ft_memcmp.c \
-# 	ft_memcpy.c \
-# 	ft_memmove.c \
-# 	ft_memset.c \
-# 	ft_strchr.c \
-# 	ft_strlcpy.c \
-# 	ft_strlcat.c \
-# 	ft_strlen.c \
-# 	ft_strncmp.c \
-# 	ft_strnstr.c \
-# 	ft_strrchr.c \
-# 	ft_tolower.c \
-# 	ft_toupper.c \
-# 	ft_calloc.c \
-# 	ft_strdup.c \
-# 	ft_substr.c \
-# 	ft_strjoin.c \
-# 	ft_strtrim.c \
-# 	ft_split.c \
-# 	ft_itoa.c \
-# 	ft_putchar_fd.c \
-# 	ft_putstr_fd.c \
-# 	ft_putendl_fd.c \
-# 	ft_putnbr_fd.c \
-# 	ft_strmapi.c \
-# 	ft_striteri.c 
+SRCS = src/doubly_linked_list.c \
+src/input_argv.c \
+src/judgment.c \
+src/push_swap.c
 
 OBJS = $(SRCS:.c=.o)
-NAME = libft.a
-HEADER = libft.h
+NAME = push_swap
+LIB = push_swap.a
 
 
 all : $(NAME)
 
-$(NAME) : $(OBJS)
+$(NAME) : $(LIB)
+	make -C libft/
+	make -C ft_printf/
+	$(CC) $(CFLAG) -o $@ $^ -L libft/ -lft -L ft_printf/ -lftprintf
+
+$(LIB) : $(OBJS)
 	$(AR) $@ $^
 
-%.o : %.c $(HEADER)
+%.o : %.c
 	$(CC) $(CFLAG) -c $< -o $@
-
 clean :
+	make clean -C libft/
+	make clean -C ft_printf/
 	$(RM) $(OBJS)
 
 fclean : 
-	$(RM) $(OBJS) $(NAME)
+	make fclean -C libft/
+	make fclean -C ft_printf/
+	$(RM) $(OBJS) $(NAME) $(LIB)
 
 re : 
-	make fclean 
+	make fclean
 	make all
 
 .PHONY: all clean fclean re

@@ -12,16 +12,28 @@
 
 #include "../include/push_swap.h"
 
-t_node    *ft_inputargv(int argc, char ***argv, t_node *new1)
+t_node    *ft_inputargv(int argc, char ***argv, t_node *new1, int flag)
 {
     t_node *cur;
     
     cur = new1;
-    while(--argc > 0)
+    if (flag == 0)
     {
-        insert_front_Node(cur, ft_atoi((*argv)[argc]));
-        new1 = new1->prev;
-        cur = new1;
+        while(--argc > 0)
+        {
+            insert_front_Node(cur, ft_atoi((*argv)[argc]));
+            new1 = new1->prev;
+            cur = new1;
+        }
+    }
+    else if (flag == 1)
+    {
+        while(argc-- > 0)
+        {
+            insert_front_Node(cur, ft_atoi((*argv)[argc]));
+            new1 = new1->prev;
+            cur = new1;
+        }
     }
     return (cur);
 }

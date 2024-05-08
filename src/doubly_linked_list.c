@@ -26,7 +26,7 @@ t_node *ft_first_loca(int flag)
     flag += 1;
     tmp = (t_node *)malloc(sizeof(t_node));
     if (!tmp)
-        return (NULL);
+        exit(1);
     ft_init_list(tmp);
     return (tmp);
 }
@@ -39,14 +39,14 @@ t_node *ft_new_doubly(int num)
     if (!new)
     {
         ft_putstr_fd("Error\n", 2);
-        return (NULL);
+        exit(1);
     }
     new->top = ft_first_loca(1);
     new->bottom = ft_first_loca(1);
     if (!(new->top) || !(new->bottom))
     {
         ft_putstr_fd("Error\n", 2);
-        return (NULL);
+        exit(1);
     }   
     new->top->num = num;
     new->top->next = new->bottom;
@@ -56,15 +56,13 @@ t_node *ft_new_doubly(int num)
 
 void    insert_front_Node(t_node *lst, int num)
 {
-    t_node *cur;
     t_node *new_front;
 
-    cur = lst;
     new_front = (t_node *)malloc(sizeof(t_node));
     if (!new_front)
     {
         ft_putstr_fd("Error\n", 2);
-        return ;
+        exit(1);
     }
     ft_init_list(new_front);
     new_front->num = num;
@@ -76,6 +74,6 @@ void    insert_front_Node(t_node *lst, int num)
     else
     {
         ft_putstr_fd("Error\n", 2);
-        return ;
+        exit(1);
     }
 }
