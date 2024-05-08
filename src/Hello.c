@@ -1,26 +1,18 @@
 #include "../include/push_swap.h"
-#include <stdio.h>
 
 int main(int argc, char **argv)
 {
     t_node *new1;
-    t_node *cur = new1;
     int num;
+
     num = argc - 1;
- 
-    new1 = ft_new_doubly(ft_atoi(argv[num]));
-    new1 = ft_inputargv(num, &argv, new1);
-    // while(--num > 0)
-    // {
-    //     insert_front_Node(new1, ft_atoi(argv[num]));
-    //     new1 = new1->prev;
-    //     cur = new1;
-    // }
-    while(new1->next != NULL)
+    if (argc > 2)
     {
-        printf("%d ", new1->num);
-        new1 = new1->next;
+        // new1 = ft_new_doubly(ft_atoi(argv[num]));
+        // new1 = ft_inputargv(num, &argv, new1);
+        // ft_print_list(new1);
+        ft_argc_over2(&new1, argv, num);
     }
-    printf("\n");
+    else if (argc == 2)
     return (0);    
 }

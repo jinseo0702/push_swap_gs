@@ -1,37 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_argv.c                                       :+:      :+:    :+:   */
+/*   judgment.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 15:20:19 by jinseo            #+#    #+#             */
-/*   Updated: 2024/05/08 15:20:23 by jinseo           ###   ########.fr       */
+/*   Created: 2024/05/08 16:47:30 by jinseo            #+#    #+#             */
+/*   Updated: 2024/05/08 16:47:31 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-t_node    *ft_inputargv(int argc, char ***argv, t_node *new1)
+void ft_argc_over2(t_node **new1, char **argv, int num)
 {
-    t_node *cur;
-    
-    cur = new1;
-    while(--argc > 0)
-    {
-        insert_front_Node(cur, ft_atoi((*argv)[argc]));
-        new1 = new1->prev;
-        cur = new1;
-    }
-    return (cur);
-}
-
-void    ft_print_list(t_node *new1)
-{
-    while(new1->next != NULL)
-    {
-        ft_printf("%d ", new1->num);
-        new1 = new1->next;
-    }
-    ft_printf("\n");
+        *new1 = ft_new_doubly(ft_atoi(argv[num]));
+        *new1 = ft_inputargv(num, &argv, *new1);
+        ft_print_list(*new1);
 }
