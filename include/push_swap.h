@@ -28,6 +28,7 @@ typedef struct s_stack
 {
     struct s_node *top;
     struct s_node *bottom;
+    int size;
 } t_stack;
 
 void    ft_init_list(t_node *new);
