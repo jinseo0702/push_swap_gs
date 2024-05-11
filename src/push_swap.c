@@ -24,16 +24,11 @@ int main(int argc, char **argv)
 {
     t_stack *a;
     t_stack *b;
-    int idx;
-    (void)argc;
 
-    idx = 1;
     a = ft_creat_stack();
     b = ft_creat_stack();
-    while (argv[idx])
-    {
-        ft_insert_node(a, ft_new_node(ft_atoi(argv[idx]), a));
-        idx++;
-    }
-    ft_print_stack(a);
+    ft_judge(a, b, argv, argc);
+    ft_free_stack(a);
+    ft_free_stack(b);
+    return (0);
 }

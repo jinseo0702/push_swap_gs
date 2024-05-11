@@ -49,5 +49,10 @@ void    ft_free_stack(t_stack *stack);
 // finish_pcm.ver
 //in input_argv
 void ft_print_stack(t_stack *stack);
-//
+//ver.2 judgment
+void ft_argc_over2_2(t_stack *stack, char **argv);
+int ft_is_mix2_2(char **split_argv);
+void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc);
+void ft_argc_like2_2(t_stack *stack, char **argv);
+
 #endif
