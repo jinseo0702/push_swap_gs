@@ -40,5 +40,14 @@ t_node    *ft_inputargv(int argc, char ***argv, t_node *new1, int flag);
 void    ft_print_list(t_node *new1);
 void ft_argc_over2(t_node **new1, char **argv, int num);
 void ft_argc_like2(t_node **new1, char **argv, int num);
-
+// add + pcmver.double linked list
+void    ft_init_list2(t_node *new);
+t_stack *ft_creat_stack(void);
+void ft_insert_node(t_stack *stack, t_node *node);
+t_node *ft_new_node(int num, t_stack *stack);
+void    ft_free_stack(t_stack *stack);
+// finish_pcm.ver
+//in input_argv
+void ft_print_stack(t_stack *stack);
+//
 #endif

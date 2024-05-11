@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void    ft_init_list(t_node *new)
+void    ft_init_list2(t_node *new)
 {
     new->prev = NULL;
     new->next = NULL;
@@ -35,12 +35,24 @@ t_stack *ft_creat_stack(void)
     return (new);
 }
 
-void insert_node(t_stack *stack, t_node *node)
+void ft_insert_node(t_stack *stack, t_node *node)
 {
-    
+    if (!stack->top)
+    {
+        stack->top = node;
+        stack->bottom = node;
+        stack->size++;
+    }
+    else
+    {
+        stack->bottom->next = node;
+        node->prev = stack->bottom;
+        stack->bottom = node;
+        stack->size++;
+    }
 }
 
-t_node *new_node(int num, t_stack *stack)
+t_node *ft_new_node(int num, t_stack *stack)
 {
     t_node *new;
 
@@ -53,6 +65,7 @@ t_node *new_node(int num, t_stack *stack)
     }
     ft_init_list(new);
     new->num = num;
+    return (new);
 }
 
 void    ft_free_stack(t_stack *stack)
