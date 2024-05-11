@@ -7,7 +7,9 @@ int main(int argc, char **argv)
 
     num = argc - 1;
     if (argc > 2)
+	{
         ft_argc_over2(&new1, argv, num);
+	}
     else if (argc == 2)
         ft_argc_like2(&new1, argv, num);
     else if (argc == 1)

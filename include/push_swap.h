@@ -17,14 +17,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-typedef struct s_list
-{
-    int num;
-    struct s_list *first_node;
-    struct s_list *next;
-    struct s_list *tail;
-} t_list;
-
 typedef struct s_node
 {
     int num;
