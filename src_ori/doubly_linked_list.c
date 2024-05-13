@@ -19,7 +19,19 @@ void    ft_init_list(t_node *new)
     new->num = 0;
 }
 
-t_stack *ft_creat_stack(void)
+t_node *ft_first_loca(int flag)
+{
+    t_node *tmp;
+    
+    flag += 1;
+    tmp = (t_node *)malloc(sizeof(t_node));
+    if (!tmp)
+        exit(1);
+    ft_init_list(tmp);
+    return (tmp);
+}
+
+t_node *ft_new_doubly(int num)
 {
     t_stack *new;
 
@@ -29,61 +41,39 @@ t_stack *ft_creat_stack(void)
         ft_putstr_fd("Error\n", 2);
         exit(1);
     }
-    new->top = NULL;
-    new->bottom = NULL;
-    new->size = 0;
-    return (new);
+    new->top = ft_first_loca(1);
+    new->bottom = ft_first_loca(1);
+    if (!(new->top) || !(new->bottom))
+    {
+        ft_putstr_fd("Error\n", 2);
+        exit(1);
+    }   
+    new->top->num = num;
+    new->top->next = new->bottom;
+    new->bottom->prev = new->top;
+    return (new->top);
 }
 
-void ft_insert_node(t_stack *stack, t_node *node)
+void    insert_front_Node(t_node *lst, int num)
 {
-    if (!stack->top)
+    t_node *new_front;
+
+    new_front = (t_node *)malloc(sizeof(t_node));
+    if (!new_front)
     {
-        stack->top = node;
-        stack->bottom = node;
-        stack->size++;
+        ft_putstr_fd("Error\n", 2);
+        exit(1);
+    }
+    ft_init_list(new_front);
+    new_front->num = num;
+    if (lst->prev == NULL)
+    {
+        new_front->next = lst;
+        lst->prev = new_front;
     }
     else
     {
-        stack->bottom->next = node;
-        node->prev = stack->bottom;
-        stack->bottom = node;
-        stack->size++;
-    }
-}
-
-t_node *ft_new_node(int num, t_stack *stack)
-{
-    t_node *new;
-
-    new = (t_node *)malloc(sizeof(t_node));
-    if (!new)
-    {
         ft_putstr_fd("Error\n", 2);
-        ft_free_stack(stack);
         exit(1);
     }
-    ft_init_list(new);
-    new->num = num;
-    return (new);
-}
-
-void    ft_free_stack(t_stack *stack)
-{
-    t_node *temp;
-    t_node *next;
-
-    temp = stack->top;
-    while(temp)
-    {
-        next = temp->next;
-        free(temp);
-        temp = next;
-    }
-    temp = NULL;
-    next = NULL;
-    free(stack);
-    stack->top = NULL;
-    stack->bottom = NULL;
-    stack = NULL;
 }

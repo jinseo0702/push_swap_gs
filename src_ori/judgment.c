@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-int ft_is_mix2_2(char **split_argv)
+int ft_is_mix(char **split_argv)
 {
     int idx;
 
@@ -22,47 +22,44 @@ int ft_is_mix2_2(char **split_argv)
     return (idx);
 }
 
-void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc)
+void ft_argc_over2(t_node **new1, char **argv, int num)
 {
-    if (argc > 2)
-        ft_argc_over2_2(stacka, argv);
-    else if (argc == 2)
-        ft_argc_like2_2(stacka, argv);
-    else
-        {
-            ft_putendl_fd("Error", 2);
-            ft_free_stack(stacka);
-            ft_free_stack(stackb);
-            exit(1);
-        }
-}
-
-void ft_argc_over2_2(t_stack *stack, char **argv)
-{
+    static char **split_argv;
     int idx;
+    int cnt;
 
     idx = 1;
-    while (argv[idx])
+    cnt = 0;
+    while (idx < num + 1)
     {
-        ft_insert_node(stack, ft_new_node(ft_atoi(argv[idx]), stack));
+        cnt = 0;
+        split_argv = ft_split(argv[idx], ' ');
+        cnt = ft_is_mix(split_argv);
+        ft_printf("cnt: %d\n", idx);
+        free(split_argv);
+        if (cnt > 1)
+            {
+                ft_putstr_fd("Error\n", 2);
+                exit (1);
+            }
         idx++;
     }
-    ft_print_stack(stack);
-
-    
+    *new1 = ft_new_doubly(ft_atoi(argv[num]));
+    *new1 = ft_inputargv(num, &argv, *new1, 0);
+    ft_print_list(*new1);
 }
 
-void ft_argc_like2_2(t_stack *stack, char **argv)
+void ft_argc_like2(t_node **new1, char **argv, int num)
 {
     char **split_argv;
     int idx;
     
     idx = 0;
-    split_argv = ft_split(argv[1], ' ');
-    while (split_argv[idx])
-    {
-        ft_insert_node(stack, ft_new_node(ft_atoi(split_argv[idx]), stack));
-        idx++;
-    }
-    ft_print_stack(stack);
+    split_argv = ft_split(argv[num], ' ');
+    idx = ft_is_mix(split_argv);
+    ft_printf("idx: %d\n", idx);
+    idx--;
+    *new1 = ft_new_doubly(ft_atoi(split_argv[idx]));
+    *new1 = ft_inputargv(idx, &split_argv, *new1, 1);
+    ft_print_list(*new1);
 }

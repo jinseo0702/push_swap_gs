@@ -3,12 +3,10 @@ CFLAG = -Wall -Wextra -Werror
 AR = ar -rcs
 RM = rm -rf
 
-SRCS = src/doubly_linked_list.c \
-src/input_argv.c \
+SRCS = src/input_argv.c \
 src/judgment.c \
 src/push_swap.c \
-src/doubly_linked_list2.c \
-src/judgment2.c
+src/doubly_linked_list.c
 
 OBJS = $(SRCS:.c=.o)
 NAME = push_swap

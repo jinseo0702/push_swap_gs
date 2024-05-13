@@ -42,12 +42,15 @@ void ft_argc_over2_2(t_stack *stack, char **argv)
     int idx;
 
     idx = 1;
+    char **split_argv;
     while (argv[idx])
     {
         ft_insert_node(stack, ft_new_node(ft_atoi(argv[idx]), stack));
         idx++;
     }
     ft_print_stack(stack);
+
+    
 }
 
 void ft_argc_like2_2(t_stack *stack, char **argv)
