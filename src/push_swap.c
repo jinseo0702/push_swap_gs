@@ -8,12 +8,6 @@ int main(int argc, char **argv)
     a = ft_creat_stack();
     b = ft_creat_stack();
     ft_judge(a, b, argv, argc);
-    pb(a, b);
-    pb(a, b);
-    pb(a, b);
-    pb(a, b);
-    rrr(a, b);
-    rrr(a, b);
     ft_printf("stack_a is\n");
     ft_print_stack(a);
     ft_printf("stack_b is\n");

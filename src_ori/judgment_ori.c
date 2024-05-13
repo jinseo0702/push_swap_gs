@@ -12,10 +12,23 @@
 
 #include "../include/push_swap.h"
 
+int ft_is_mix(char **split_argv)
+{
+    int idx;
+
+    idx = 0;
+    while (split_argv[idx])
+        idx++;
+    return (idx);
+}
+
 void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc)
 {
-    if (argc > 2)
+    if (argc >= 2)
+        // ft_argc_over2(stacka, argv);
         ft_argc_input(stacka, argv);
+    else if (argc == 2)
+        ft_argc_like2(stacka, argv);
     else
         {
             ft_putendl_fd("Error", 2);
@@ -23,6 +36,19 @@ void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc)
             ft_free_stack(stackb);
             exit(1);
         }
+}
+
+void ft_argc_over2(t_stack *stack, char **argv)
+{
+    int idx;
+
+    idx = 1;
+    while (argv[idx])
+    {
+        ft_insert_node(stack, ft_new_node(ft_atoi(argv[idx]), stack));
+        idx++;
+    }
+    ft_print_stack(stack);    
 }
 
 void ft_argc_input(t_stack *stack, char **argv)
@@ -44,6 +70,22 @@ void ft_argc_input(t_stack *stack, char **argv)
         ft_strfree(split_argv, idx_sp);
         idx++;
     }
+    ft_print_stack(stack);
+}
+
+void ft_argc_like2(t_stack *stack, char **argv)
+{
+    char **split_argv;
+    int idx;
+    
+    idx = 0;
+    split_argv = ft_split(argv[1], ' ');
+    while (split_argv[idx])
+    {
+        ft_insert_node(stack, ft_new_node(ft_atoi(split_argv[idx]), stack));
+        idx++;
+    }
+    ft_strfree(split_argv, idx);
     ft_print_stack(stack);
 }
 

@@ -40,11 +40,9 @@ void    ft_free_stack(t_stack *stack);
 //in input_argv
 void ft_print_stack(t_stack *stack);
 //ver.2 judgment
-void ft_argc_over2_2(t_stack *stack, char **argv);
-int ft_is_mix2_2(char **split_argv);
 void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc);
-void ft_argc_like2_2(t_stack *stack, char **argv);
-void	ft_strfree(char **split_argv, int idx);
+void ft_strfree(char **split_argv, int idx);
+void ft_argc_input(t_stack *stack, char **argv);
 //command_push.c
 void pb(t_stack *stack_a, t_stack *stack_b);
 void pa(t_stack *stack_a, t_stack *stack_b);
