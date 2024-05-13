@@ -19,6 +19,13 @@ int	ft_atoi_re(const char *nptr, t_stack *stack, char **split_argv, int idx_sp)
 
 	nb = 0;
 	mi = 1;
+	if (*nptr == '\0')
+	{
+		ft_free_stack(stack);
+		ft_strfree(split_argv, idx_sp);
+		ft_putendl_fd("Error", 2);
+		exit(2);
+	}
 	if (*nptr == '+' || *nptr == '-')
 	{
 		if (*nptr == '-')
