@@ -14,7 +14,7 @@
 
 void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc)
 {
-    if (argc > 2)
+    if (argc >= 2)
         ft_argc_input(stacka, stackb, argv);
     else
         {

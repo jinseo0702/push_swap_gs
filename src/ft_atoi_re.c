@@ -14,10 +14,12 @@
 
 int	ft_atoi_re(const char *nptr, t_stack *stack, char **split_argv, int idx_sp)
 {
-	int	nb;
+	long  long nb;
+	int nb2;
 	int	mi;
 
 	nb = 0;
+	nb2 = 0;
 	mi = 1;
 	if (*nptr == '+' || *nptr == '-')
 	{
@@ -38,5 +40,14 @@ int	ft_atoi_re(const char *nptr, t_stack *stack, char **split_argv, int idx_sp)
 		}
 		nptr++;
 	}
-	return (nb * mi);
+	nb *= mi;
+	if (nb < -2147483648 || nb > 2147483647)
+	{
+		ft_free_stack(stack);
+		ft_strfree(split_argv, idx_sp);
+		ft_putendl_fd("Error", 2);
+		exit(2);
+	}
+	nb2 = nb;
+	return (nb2);
 }
