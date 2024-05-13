@@ -43,6 +43,8 @@ void ft_print_stack(t_stack *stack);
 void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc);
 void ft_strfree(char **split_argv, int idx);
 void ft_argc_input(t_stack *stack, char **argv);
+// int ft_check_num(char c);
+// int ft_check_argv(t_stack stack, char **str_ori);
 //command_push.c
 void pb(t_stack *stack_a, t_stack *stack_b);
 void pa(t_stack *stack_a, t_stack *stack_b);
@@ -58,5 +60,7 @@ void rr(t_stack *a, t_stack *b);
 void rra(t_stack *a);
 void rrb(t_stack *b);
 void rrr(t_stack *a, t_stack *b);
+//ft_atoi_re.c
+int	ft_atoi_re(const char *nptr, t_stack *stack, char **split_argv, int idx_sp);
 
 #endif
