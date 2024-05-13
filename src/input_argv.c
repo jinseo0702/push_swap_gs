@@ -25,3 +25,17 @@ void    ft_print_stack(t_stack *stack)
         temp = next;
     }
 }
+
+// void    ft_check_dup(t_stack *stack)
+// {
+//     t_node *temp;
+//     t_node *next;
+
+//     temp = stack->top;
+//     while (temp)
+//     {
+//         next = temp->next;
+//         ft_printf("%d\n", temp->num);
+//         temp = next;
+//     }
+// }

@@ -71,32 +71,3 @@ void	ft_strfree(char **split_argv, int idx)
 	free(split_argv);
     split_argv = NULL;
 }
-// int ft_check_num(char c)
-// {
-//     if (c >= '0' && c <= '9')
-//         return (1);
-//     return (0);
-// }
-
-// int ft_check_argv(t_stack *stack, char **str_ori)
-// {
-//     int idx;
-//     int idx_2;
-
-//     idx = 0;
-//     idx_2 = 0;
-//     while (str_ori[idx])
-//     {
-//         idx_2 = 0;
-//         if (str_ori[idx][idx_2] == '+' || str_ori[idx][idx_2] == '-')
-//             idx_2++;
-//         while (str_ori[idx][idx_2])
-//         {
-//             if (!ft_check_num(str_ori[idx][idx_2]))
-//                 return (0);
-//             idx_2++;
-//         }
-//         idx++;
-//     }
-//     return (1);
-// }
