@@ -82,8 +82,8 @@ void    ft_free_stack(t_stack *stack)
     }
     temp = NULL;
     next = NULL;
-    free(stack);
     stack->top = NULL;
     stack->bottom = NULL;
+    free(stack);
     stack = NULL;
 }

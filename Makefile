@@ -1,12 +1,16 @@
 CC = cc
-CFLAG = -Wall -Wextra -Werror
+CFLAG = -Wall -Wextra -Werror -g
 AR = ar -rcs
 RM = rm -rf
 
 SRCS = src/input_argv.c \
 src/judgment.c \
 src/push_swap.c \
-src/doubly_linked_list.c
+src/doubly_linked_list.c \
+src/command_push.c \
+src/command_swap.c
+# src/command_double_reverse.c \
+# src/command_reverse.c \
 
 OBJS = $(SRCS:.c=.o)
 NAME = push_swap

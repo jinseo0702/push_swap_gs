@@ -47,9 +47,7 @@ void ft_argc_over2_2(t_stack *stack, char **argv)
         ft_insert_node(stack, ft_new_node(ft_atoi(argv[idx]), stack));
         idx++;
     }
-    ft_print_stack(stack);
-
-    
+    ft_print_stack(stack);    
 }
 
 void ft_argc_like2_2(t_stack *stack, char **argv)
@@ -64,5 +62,22 @@ void ft_argc_like2_2(t_stack *stack, char **argv)
         ft_insert_node(stack, ft_new_node(ft_atoi(split_argv[idx]), stack));
         idx++;
     }
+    ft_strfree(split_argv, idx);
     ft_print_stack(stack);
+}
+
+void	ft_strfree(char **split_argv, int idx)
+{
+	int	i;
+	int	size;
+
+	i = 0;
+	size = 0;
+	while (size <= idx)
+	{
+		free(split_argv[i]);
+		i++;
+		size++;
+	}
+	free(split_argv);
 }
