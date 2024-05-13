@@ -12,7 +12,7 @@
 
 #include "../include/push_swap.h"
 
-void sa(t_stack *a, int flag)
+void sa(t_stack *a)
 {
     t_node *temp;
 
@@ -24,11 +24,10 @@ void sa(t_stack *a, int flag)
     temp->next = a->top->next;
     a->top->next = temp;
     a->top->prev = NULL;
-    if (flag != 1)
-        ft_printf("sa\n");
+    ft_printf("sa\n");
 }
 
-void sb(t_stack *b, int flag)
+void sb(t_stack *b)
 {
     t_node *temp;
 
@@ -40,15 +39,27 @@ void sb(t_stack *b, int flag)
     temp->next = b->top->next;
     b->top->next = temp;
     b->top->prev = NULL;
-    if (flag != 1)
-        ft_printf("sb\n");
+    ft_printf("sb\n");
 }
 
 void ss(t_stack *a, t_stack *b)
 {
+    t_node *temp_a;
+    t_node *temp_b;
+
     if (a->size <= 1 || b->size <= 1)
         return ;
-    sa(a, 1);
-    sb(b, 1);
+    temp_a = a->top;
+    a->top = a->top->next;
+    temp_a->prev = a->top;
+    temp_a->next = a->top->next;
+    a->top->next = temp_a;
+    a->top->prev = NULL;
+    temp_b = b->top;
+    b->top = b->top->next;
+    temp_b->prev = b->top;
+    temp_b->next = b->top->next;
+    b->top->next = temp_b;
+    b->top->prev = NULL;
     ft_printf("ss\n");
 }

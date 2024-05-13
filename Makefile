@@ -8,9 +8,9 @@ src/judgment.c \
 src/push_swap.c \
 src/doubly_linked_list.c \
 src/command_push.c \
-src/command_swap.c
+src/command_swap.c \
+src/command_reverse.c
 # src/command_double_reverse.c \
-# src/command_reverse.c \
 
 OBJS = $(SRCS:.c=.o)
 NAME = push_swap

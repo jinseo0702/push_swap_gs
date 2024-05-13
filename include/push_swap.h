@@ -49,8 +49,12 @@ void	ft_strfree(char **split_argv, int idx);
 void pb(t_stack *stack_a, t_stack *stack_b);
 void pa(t_stack *stack_a, t_stack *stack_b);
 //command_swap.c
-void sa(t_stack *a, int flag);
-void sb(t_stack *b, int flag);
+void sa(t_stack *a);
+void sb(t_stack *b);
 void ss(t_stack *a, t_stack *b);
+//command_reverse.c
+void ra(t_stack *a);
+void rb(t_stack *b);
+void rr(t_stack *a, t_stack *b);
 
 #endif
