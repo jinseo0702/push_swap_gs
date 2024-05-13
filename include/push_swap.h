@@ -42,7 +42,7 @@ void ft_print_stack(t_stack *stack);
 //ver.2 judgment
 void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc);
 void ft_strfree(char **split_argv, int idx);
-void ft_argc_input(t_stack *stack, char **argv);
+void ft_argc_input(t_stack *stack_a, t_stack *stack_b, char **argv);
 // int ft_check_num(char c);
 // int ft_check_argv(t_stack stack, char **str_ori);
 //command_push.c

@@ -15,7 +15,7 @@
 void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc)
 {
     if (argc > 2)
-        ft_argc_input(stacka, argv);
+        ft_argc_input(stacka, stackb, argv);
     else
         {
             ft_putendl_fd("Error", 2);
@@ -25,7 +25,7 @@ void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc)
         }
 }
 
-void ft_argc_input(t_stack *stack, char **argv)
+void ft_argc_input(t_stack *stack_a, t_stack *stack_b, char **argv)
 {
     int idx;
     int idx_sp;
@@ -35,24 +35,24 @@ void ft_argc_input(t_stack *stack, char **argv)
     idx_sp = 0;
     while (argv[idx] != NULL)
     {
+    	if (ft_strncmp(argv[idx], "", 1) == 0)
+    	{
+		    ft_free_stack(stack_a);
+            ft_free_stack(stack_b);
+		    ft_putendl_fd("Error", 2);
+		    exit(2);
+	    }
         split_argv = ft_split(argv[idx], ' ');
         idx_sp = 0;
-        if (split_argv[idx][0] == '\0')
-        {
-            ft_free_stack(stack);
-            ft_strfree(split_argv, idx_sp);
-            ft_putendl_fd("Error", 2);
-            exit(2);
-        }
         while (split_argv[idx_sp])
         {
-            ft_insert_node(stack, ft_new_node(ft_atoi_re(split_argv[idx_sp], stack, split_argv, idx_sp), stack));
+            ft_insert_node(stack_a, ft_new_node(ft_atoi_re(split_argv[idx_sp], stack_a, split_argv, idx_sp), stack_a));
             idx_sp++;
         }
         ft_strfree(split_argv, idx_sp);
         idx++;
     }
-    ft_print_stack(stack);
+    ft_print_stack(stack_a);
 }
 
 void	ft_strfree(char **split_argv, int idx)
