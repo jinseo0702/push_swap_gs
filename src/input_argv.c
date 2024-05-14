@@ -26,16 +26,33 @@ void    ft_print_stack(t_stack *stack)
     }
 }
 
-// void    ft_check_dup(t_stack *stack)
-// {
-//     t_node *temp;
-//     t_node *next;
+void    ft_check_dup(t_stack *a, t_stack *b)
+{
+    t_node *temp;
+    t_node *temp2;
+    int idx;
+    int idx2;
 
-//     temp = stack->top;
-//     while (temp)
-//     {
-//         next = temp->next;
-//         ft_printf("%d\n", temp->num);
-//         temp = next;
-//     }
-// }
+    temp = a->top;
+    idx = 0;
+    idx2 = 0;
+    while (idx < a->size)
+    {
+        idx2 = idx;
+        temp2 = temp;
+        while (idx2 < ((a->size) - 1) && temp2)
+        {
+            if (temp->num == temp2->next->num)
+            {
+                ft_putendl_fd("Error", 2);
+                ft_free_stack(a);
+                ft_free_stack(b);
+                exit(1);
+            }
+            temp2 = temp2->next;
+            idx2++;
+        }
+        temp = temp->next;
+        idx++;
+    }
+}

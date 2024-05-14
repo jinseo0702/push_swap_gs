@@ -46,12 +46,13 @@ void ft_argc_input(t_stack *stack_a, t_stack *stack_b, char **argv)
         idx_sp = 0;
         while (split_argv[idx_sp])
         {
-            ft_insert_node(stack_a, ft_new_node(ft_atoi_re(split_argv[idx_sp], stack_a, split_argv, idx_sp), stack_a));
+            ft_insert_node(stack_a, ft_new_node(ft_atoi_re(stack_b, stack_a, split_argv, idx_sp), stack_a));
             idx_sp++;
         }
         ft_strfree(split_argv, idx_sp);
         idx++;
     }
+    ft_check_dup(stack_a, stack_b);
     ft_print_stack(stack_a);
 }
 

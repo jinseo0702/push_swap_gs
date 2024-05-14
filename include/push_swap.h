@@ -39,6 +39,7 @@ t_node *ft_new_node(int num, t_stack *stack);
 void    ft_free_stack(t_stack *stack);
 //in input_argv
 void ft_print_stack(t_stack *stack);
+void ft_check_dup(t_stack *a, t_stack *b);
 //ver.2 judgment
 void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc);
 void ft_strfree(char **split_argv, int idx);
@@ -61,6 +62,6 @@ void rra(t_stack *a);
 void rrb(t_stack *b);
 void rrr(t_stack *a, t_stack *b);
 //ft_atoi_re.c
-int	ft_atoi_re(const char *nptr, t_stack *stack, char **split_argv, int idx_sp);
+int	ft_atoi_re(t_stack *b, t_stack *a, char **split_argv, int idx_sp);
 
 #endif
