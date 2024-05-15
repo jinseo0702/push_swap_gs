@@ -17,6 +17,7 @@ void    ft_init_list(t_node *new)
     new->prev = NULL;
     new->next = NULL;
     new->num = 0;
+    new->rnk = 0;
 }
 
 t_stack *ft_creat_stack(void)

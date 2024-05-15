@@ -20,6 +20,7 @@
 typedef struct s_node
 {
     int num;
+    int rnk;
     struct s_node   *prev;
     struct s_node   *next;
 } t_node;
@@ -39,7 +40,9 @@ t_node *ft_new_node(int num, t_stack *stack);
 void    ft_free_stack(t_stack *stack);
 //in input_argv
 void ft_print_stack(t_stack *stack);
+void ft_print_stack_rnk(t_stack *stack);
 void ft_check_dup(t_stack *a, t_stack *b);
+void ft_passing(t_stack *a);
 //ver.2 judgment
 void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc);
 void ft_strfree(char **split_argv, int idx);

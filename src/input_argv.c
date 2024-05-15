@@ -26,6 +26,21 @@ void    ft_print_stack(t_stack *stack)
     }
 }
 
+void    ft_print_stack_rnk(t_stack *stack)
+{
+    t_node *temp;
+    t_node *next;
+
+    temp = stack->top;
+    ft_printf("----- rnk is -----\n");
+    while (temp)
+    {
+        next = temp->next;
+        ft_printf("%d\n", temp->rnk);
+        temp = next;
+    }
+}
+
 void    ft_check_dup(t_stack *a, t_stack *b)
 {
     t_node *temp;
@@ -55,4 +70,28 @@ void    ft_check_dup(t_stack *a, t_stack *b)
         temp = temp->next;
         idx++;
     }
+}
+
+void ft_passing(t_stack *a)
+{
+    t_node *temp;
+    t_node *cur;
+    int rnk;
+
+    rnk = 0;
+    cur = a->top;
+    while (cur)
+    {
+        rnk = 1;
+        temp = a->top;
+        while (temp)
+        {
+            if (cur->num > temp->num)
+                rnk += 1;
+            temp = temp->next;
+        }
+        cur->rnk = rnk;
+        cur = cur->next;
+    }
+    
 }
