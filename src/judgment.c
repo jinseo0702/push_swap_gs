@@ -6,49 +6,48 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:47:30 by jinseo            #+#    #+#             */
-/*   Updated: 2024/05/08 16:47:31 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/05/16 18:15:49 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc)
+void	ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc)
 {
-    if (argc >= 2)
-        ft_argc_input(stacka, stackb, argv);
-    else
-        {
-            ft_putendl_fd("Error", 2);
-            ft_free_stack(stacka);
-            ft_free_stack(stackb);
-            exit(1);
-        }
+	if (argc >= 2)
+		ft_argc_input(stacka, stackb, argv);
+	else
+	{
+		ft_putendl_fd("Error", 2);
+		ft_free_stack(stacka);
+		ft_free_stack(stackb);
+		exit(1);
+	}
 }
 
-void ft_argc_input(t_stack *stack_a, t_stack *stack_b, char **argv)
+void	ft_argc_input(t_stack *a, t_stack *b, char **argv)
 {
-    int idx;
-    int idx_sp;
-    static char **split_argv;
+	int			idx;
+	int			spi;
+	static char	**sp_av;
 
-    idx = 1;
-    idx_sp = 0;
-    while (argv[idx] != NULL)
-    {
-    	if (ft_strncmp(argv[idx], "", 1) == 0)
-            ft_free_all(stack_a, stack_b);
-        split_argv = ft_split(argv[idx], ' ');
-        idx_sp = -1;
-        while (split_argv[++idx_sp])
-            ft_insert_node(stack_a, ft_new_node(ft_atoi_re\
-            (stack_b, stack_a, split_argv, idx_sp), stack_a));
-        ft_strfree(split_argv, idx_sp);
-        idx++;
-    }
-    ft_check_dup(stack_a, stack_b);
-    ft_passing(stack_a);
-    ft_print_stack(stack_a);
-    ft_print_stack_rnk(stack_a);
+	idx = 1;
+	spi = 0;
+	while (argv[idx] != NULL)
+	{
+		if (ft_strncmp(argv[idx], "", 1) == 0)
+			ft_free_all(a, b);
+		sp_av = ft_split(argv[idx], ' ');
+		spi = -1;
+		while (sp_av[++spi])
+			ft_insert_node(a, ft_new_node(ft_atoi_re(b, a, sp_av, spi), a));
+		ft_strfree(sp_av, spi);
+		idx++;
+	}
+	ft_check_dup(a, b);
+	ft_passing(a);
+	ft_print_stack(a);
+	ft_print_stack_rnk(a);
 }
 
 void	ft_strfree(char **split_argv, int idx)
@@ -65,13 +64,13 @@ void	ft_strfree(char **split_argv, int idx)
 		size++;
 	}
 	free(split_argv);
-    split_argv = NULL;
+	split_argv = NULL;
 }
 
-void ft_free_all(t_stack *a, t_stack *b)
+void	ft_free_all(t_stack *a, t_stack *b)
 {
-    ft_free_stack(a);
-    ft_free_stack(b);
+	ft_free_stack(a);
+	ft_free_stack(b);
 	ft_putendl_fd("Error", 2);
 	exit(1);
 }

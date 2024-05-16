@@ -46,9 +46,8 @@ void ft_passing(t_stack *a);
 //ver.2 judgment
 void ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc);
 void ft_strfree(char **split_argv, int idx);
-void ft_argc_input(t_stack *stack_a, t_stack *stack_b, char **argv);
-// int ft_check_num(char c);
-// int ft_check_argv(t_stack stack, char **str_ori);
+void ft_argc_input(t_stack *a, t_stack *b, char **argv);
+void ft_free_all(t_stack *a, t_stack *b);
 //command_push.c
 void pb(t_stack *stack_a, t_stack *stack_b);
 void pa(t_stack *stack_a, t_stack *stack_b);
@@ -66,5 +65,6 @@ void rrb(t_stack *b);
 void rrr(t_stack *a, t_stack *b);
 //ft_atoi_re.c
 int	ft_atoi_re(t_stack *b, t_stack *a, char **split_argv, int idx_sp);
+void ft_free_stack_split(t_stack *a, t_stack *b, char **split_argv, int idx);
 
 #endif
