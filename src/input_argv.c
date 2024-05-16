@@ -93,5 +93,4 @@ void ft_passing(t_stack *a)
         cur->rnk = rnk;
         cur = cur->next;
     }
-    
 }
