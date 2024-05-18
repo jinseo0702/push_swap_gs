@@ -20,10 +20,15 @@ int	main(int argc, char **argv)
 	a = ft_creat_stack();
 	b = ft_creat_stack();
 	ft_judge(a, b, argv, argc);
+	quick_swap_first(a, b, 1, a->size);
+	ft_printf("\n-----first-----\n");
+	quick_swap_no(a, b, 3, 5);
+	ft_print_stack_rnk(a);
 	ft_printf("stack_a is\n");
 	ft_print_stack(a);
 	ft_printf("stack_b is\n");
 	ft_print_stack(b);
+	ft_printf("--stack_size == %d\n", a->size);
 	ft_free_stack(a);
 	ft_free_stack(b);
 	return (0);

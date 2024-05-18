@@ -66,5 +66,8 @@ void rrr(t_stack *a, t_stack *b);
 //ft_atoi_re.c
 int	ft_atoi_re(t_stack *b, t_stack *a, char **split_argv, int idx_sp);
 void ft_free_stack_split(t_stack *a, t_stack *b, char **split_argv, int idx);
-
+//quick_sort.c
+void quick_swap_first(t_stack *a, t_stack *b, int min, int max);
+void quick_swap_no(t_stack *a, t_stack *b, int min, int max);
+int quick_cnt(t_stack *a, int num);
 #endif

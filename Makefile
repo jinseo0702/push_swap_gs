@@ -11,7 +11,8 @@ src/command_push.c \
 src/command_swap.c \
 src/command_reverse.c \
 src/command_double_reverse.c \
-src/ft_atoi_re.c
+src/ft_atoi_re.c \
+src/quick_sort.c
 
 OBJS = $(SRCS:.c=.o)
 NAME = push_swap
