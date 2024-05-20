@@ -46,8 +46,8 @@ void	ft_argc_input(t_stack *a, t_stack *b, char **argv)
 	}
 	ft_check_dup(a, b);
 	ft_passing(a);
-	ft_print_stack(a);
-	ft_print_stack_rnk(a);
+	// ft_print_stack(a);
+	// ft_print_stack_rnk(a);
 }
 
 void	ft_strfree(char **split_argv, int idx)
