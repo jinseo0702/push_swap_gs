@@ -20,9 +20,13 @@ int	main(int argc, char **argv)
 	a = ft_creat_stack();
 	b = ft_creat_stack();
 	ft_judge(a, b, argv, argc);
-	quick_swap_first(a, b, 1, a->size);
+	// quick_swap_first(a, b, 1, a->size);
 	ft_printf("\n-----first-----\n");
-	quick_swap_no(a, b, 3, 5);
+	for (int c = 1; c < a->size; c++){
+		int d = c + 1;
+		quick_swap_no(a, b, c, d);
+	}
+	// quick_swap_no(a, b, 1, 4);
 	ft_print_stack_rnk(a);
 	ft_printf("stack_a is\n");
 	ft_print_stack(a);

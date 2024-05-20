@@ -21,7 +21,6 @@ void	rra(t_stack *a)
 	temp = a->bottom;
 	a->bottom = a->bottom->prev;
 	a->bottom->next = NULL;
-	a->bottom->prev = temp->prev->prev;
 	a->top->prev = temp;
 	temp->next = a->top;
 	a->top = temp;
@@ -38,7 +37,6 @@ void	rrb(t_stack *b)
 	temp = b->bottom;
 	b->bottom = b->bottom->prev;
 	b->bottom->next = NULL;
-	b->bottom->prev = temp->prev->prev;
 	b->top->prev = temp;
 	temp->next = b->top;
 	b->top = temp;
@@ -56,7 +54,6 @@ void	rrr(t_stack *a, t_stack *b)
 	temp_a = a->bottom;
 	a->bottom = a->bottom->prev;
 	a->bottom->next = NULL;
-	a->bottom->prev = temp_a->prev->prev;
 	a->top->prev = temp_a;
 	temp_a->next = a->top;
 	a->top = temp_a;
@@ -64,7 +61,6 @@ void	rrr(t_stack *a, t_stack *b)
 	temp_b = b->bottom;
 	b->bottom = b->bottom->prev;
 	b->bottom->next = NULL;
-	b->bottom->prev = temp_b->prev->prev;
 	b->top->prev = temp_b;
 	temp_b->next = b->top;
 	b->top = temp_b;

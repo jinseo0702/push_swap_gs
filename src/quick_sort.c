@@ -6,8 +6,10 @@ int quick_cnt(t_stack *a, int num)
     t_node *next;
     int num2;
 
+    if (!a->top)
+        return (-2);
     temp = a->top;
-    num2 = 0;
+    num2 = -1;
     while (temp->rnk != num && temp)
     {
         next = temp->next;
@@ -26,7 +28,8 @@ void quick_swap_first(t_stack *a, t_stack *b, int min, int max)
 
     temp = a->top;
     cnt_min = quick_cnt(a, min);
-    cnt_max = quick_cnt(a, max);
+    if (cnt_min == -2)
+        return ;
     if (((cnt_min + a->size) % a->size) > ((a->size - cnt_min) % a->size))
     {
         while (a->top->rnk != min && temp)
@@ -47,6 +50,9 @@ void quick_swap_first(t_stack *a, t_stack *b, int min, int max)
     }
     pb(a, b);
     temp = a->top;
+    cnt_max = quick_cnt(a, max);
+    if (cnt_max == -2)
+        return ;
     if (((cnt_max + a->size) % a->size) > ((a->size - cnt_max) % a->size))
     {
         while (a->top->rnk != max && temp)
@@ -78,7 +84,6 @@ void quick_swap_no(t_stack *a, t_stack *b, int min, int max)
 
     temp = a->top;
     cnt_min = quick_cnt(a, min);
-    cnt_max = quick_cnt(a, max);
     if (((cnt_min + a->size) % a->size) > ((a->size - cnt_min) % a->size))
     {
         while (a->top->rnk != min && temp)
@@ -99,6 +104,7 @@ void quick_swap_no(t_stack *a, t_stack *b, int min, int max)
     }
     pb(a, b);
     temp = a->top;
+    cnt_max = quick_cnt(a, max);
     if (((cnt_max + a->size) % a->size) > ((a->size - cnt_max) % a->size))
     {
         while (a->top->rnk != max && temp)
