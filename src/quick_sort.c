@@ -1,14 +1,14 @@
 #include "../include/push_swap.h"
 
-int quick_cnt(t_stack *a, int num)
+int quick_cnt(t_stack *stack, int num)
 {
     t_node *temp;
     t_node *next;
     int num2;
 
-    if (!a->top)
+    if (!stack->top)
         return (-2);
-    temp = a->top;
+    temp = stack->top;
     num2 = -1;
     while (temp->rnk != num && temp)
     {
@@ -16,7 +16,9 @@ int quick_cnt(t_stack *a, int num)
         temp = next;
         ++num2;
     }
-    return (num2);
+    if ((num2 + stack->size) % stack->size > ((stack->size - num2) % stack->size))
+        return (1);//rr
+    return (0);//r
 }
 
 void quick_swap_first(t_stack *a, t_stack *b, int min, int max)

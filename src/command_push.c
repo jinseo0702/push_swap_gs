@@ -16,7 +16,7 @@ void pb(t_stack *stack_a, t_stack *stack_b)
 {
     t_node *temp;
     //if stack_a is NULL?
-    if (!stack_a->size)
+    if (!stack_a->top || !stack_a)
         return ;
     temp = stack_a->top;//if next is NULL???? edge case;
     stack_a->top = stack_a->top->next;
@@ -25,6 +25,8 @@ void pb(t_stack *stack_a, t_stack *stack_b)
         stack_b->top = temp;
         stack_b->bottom = temp;
         temp->next = NULL;
+        if (stack_a->top)
+            stack_a->top->prev = NULL;
         stack_b->size++;
         stack_a->size--;
     }
@@ -33,6 +35,8 @@ void pb(t_stack *stack_a, t_stack *stack_b)
         stack_b->top->prev = temp;
         temp->next = stack_b->top;
         stack_b->top = temp;
+        if (stack_a->top)
+            stack_a->top->prev = NULL;
         stack_b->size++;
         stack_a->size--;
     }
@@ -43,10 +47,11 @@ void pa(t_stack *stack_a, t_stack *stack_b)
 {
     t_node *temp;
     //if stack_a is NULL?
-    if (!stack_b->size)
+    if (!stack_b->top || !stack_b->top->next || !stack_b)
         return ;
     temp = stack_b->top;//if next is NULL???? edge case;
     stack_b->top = stack_b->top->next;
+    stack_b->top->prev = NULL;
     if (!stack_a->top)
     {
         stack_a->top = temp;
