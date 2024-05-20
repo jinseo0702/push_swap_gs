@@ -30,6 +30,28 @@ void ft_sand_onestep(t_stack *a, t_stack *b)
                 rra(a);
         }
     }
+	ft_sand_twostep(a, b);
+}
+
+void ft_sand_twostep(t_stack *a, t_stack *b)
+{
+	t_node *temp;
+	t_node *next;
+
+	while (b->top != NULL)
+	{
+		temp = b->top;
+		while (b->top->rnk != b->size && temp)
+		{
+			next = temp->next;
+			if(quick_cnt(b, b->size))
+				rrb(b);
+			else
+				rb(b);
+			temp = next;
+		}
+		pa(a, b);
+	}
 }
 
 

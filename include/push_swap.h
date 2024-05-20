@@ -72,5 +72,6 @@ void quick_swap_no(t_stack *a, t_stack *b, int min, int max);
 int quick_cnt(t_stack *stack, int num);
 //sand.c
 void ft_sand_onestep(t_stack *a, t_stack *b);
+void ft_sand_twostep(t_stack *a, t_stack *b);
 int ft_chunk(int size);
 #endif

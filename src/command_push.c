@@ -47,16 +47,17 @@ void pa(t_stack *stack_a, t_stack *stack_b)
 {
     t_node *temp;
     //if stack_a is NULL?
-    if (!stack_b->top || !stack_b->top->next || !stack_b)
+    if (!stack_b->top || !stack_b)
         return ;
     temp = stack_b->top;//if next is NULL???? edge case;
     stack_b->top = stack_b->top->next;
-    stack_b->top->prev = NULL;
     if (!stack_a->top)
     {
         stack_a->top = temp;
         stack_a->bottom = temp;
         temp->next = NULL;
+        if (stack_b->top)
+            stack_b->top->prev = NULL;
         stack_a->size++;
         stack_b->size--;
     }
@@ -65,6 +66,8 @@ void pa(t_stack *stack_a, t_stack *stack_b)
         stack_a->top->prev = temp;
         temp->next = stack_a->top;
         stack_a->top = temp;
+        if (stack_b->top)
+            stack_b->top->prev = NULL;
         stack_a->size++;
         stack_b->size--;
     }
