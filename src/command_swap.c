@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:22:53 by jinseo            #+#    #+#             */
-/*   Updated: 2024/05/16 19:04:36 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/05/21 14:10:54 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_stack *a)
 {
 	t_node	*temp;
 
-	if (a->size == 0 || a->size == 1)
+	if (!a || !a->top)
 		return ;
 	temp = a->top;
 	a->top = a->top->next;
@@ -31,7 +31,7 @@ void	sb(t_stack *b)
 {
 	t_node	*temp;
 
-	if (b->size == 0 || b->size == 1)
+	if (!b || !b->top)
 		return ;
 	temp = b->top;
 	b->top = b->top->next;
@@ -47,7 +47,7 @@ void	ss(t_stack *a, t_stack *b)
 	t_node	*temp_a;
 	t_node	*temp_b;
 
-	if (a->size <= 1 || b->size <= 1)
+	if (!a || !a->top || !b || !b->top)
 		return ;
 	temp_a = a->top;
 	a->top = a->top->next;

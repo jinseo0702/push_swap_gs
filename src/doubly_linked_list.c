@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:13:45 by jinseo            #+#    #+#             */
-/*   Updated: 2024/05/16 19:03:05 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/05/21 15:29:01 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_init_list(t_node *new)
 {
 	new->prev = NULL;
 	new->next = NULL;
+	new->base = NULL;
 	new->num = 0;
 	new->rnk = 0;
 }
@@ -78,6 +79,7 @@ void	ft_free_stack(t_stack *stack)
 	while (temp)
 	{
 		next = temp->next;
+		free(temp->base);
 		free(temp);
 		temp = next;
 	}

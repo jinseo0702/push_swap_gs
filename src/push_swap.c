@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 15:13:44 by jinseo            #+#    #+#             */
-/*   Updated: 2024/05/16 15:14:47 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/05/21 15:41:59 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,15 @@ int	main(int argc, char **argv)
 	a = ft_creat_stack();
 	b = ft_creat_stack();
 	ft_judge(a, b, argv, argc);
-	// ft_printf("\n-----first-----\n");
-	// ft_print_stack_rnk(a);
-	// ft_printf("stack_a is\n");
-	// ft_print_stack(a);
-	ft_sand_onestep(a, b);
-	// ft_printf("stack_b is\n");
-	// ft_print_stack(b);
-	// ft_printf("--stack_rnk --\n");
-	// ft_print_stack_rnk(b);
-	ft_free_stack(a);
-	ft_free_stack(b);
+	// ft_is_sort(a, b);
+	// ft_sand_onestep(a, b, 1, ft_chunk(a->size));
+	// ft_printf("\nprint a ------------------\n");
+	// ft_print_base(a);
+	// ft_printf("\nprint b ------------------\n");
+	// ft_print_base(b);
+	// ft_sand_twostep(a, b);
+	radix(a, b);
+	// ft_free_stack(a);
+	// ft_free_stack(b);
 	return (0);
 }

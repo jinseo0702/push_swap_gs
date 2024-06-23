@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:47:30 by jinseo            #+#    #+#             */
-/*   Updated: 2024/05/16 18:15:49 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/05/21 15:30:16 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,7 @@ void	ft_argc_input(t_stack *a, t_stack *b, char **argv)
 	}
 	ft_check_dup(a, b);
 	ft_passing(a);
-	// ft_print_stack(a);
-	// ft_print_stack_rnk(a);
+	ft_basethree(a);
 }
 
 void	ft_strfree(char **split_argv, int idx)

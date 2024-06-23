@@ -12,8 +12,9 @@ src/command_swap.c \
 src/command_reverse.c \
 src/command_double_reverse.c \
 src/ft_atoi_re.c \
-src/quick_sort.c \
-src/sand.c
+src/sand.c \
+src/check.c \
+src/radix.c
 
 OBJS = $(SRCS:.c=.o)
 NAME = push_swap
@@ -23,27 +24,27 @@ LIB = push_swap.a
 all : $(NAME)
 
 $(NAME) : $(LIB)
-	make -C libft/
-	make -C ft_printf/
-	$(CC) $(CFLAG) -o $@ $^ -L libft/ -lft -L ft_printf/ -lftprintf
+	@make -C libft/
+	@make -C ft_printf/
+	@$(CC) $(CFLAG) -o $@ $^ -L libft/ -lft -L ft_printf/ -lftprintf
 
 $(LIB) : $(OBJS)
-	$(AR) $@ $^
+	@$(AR) $@ $^
 
 %.o : %.c
-	$(CC) $(CFLAG) -c $< -o $@
+	@$(CC) $(CFLAG) -c $< -o $@
 clean :
-	make clean -C libft/
-	make clean -C ft_printf/
-	$(RM) $(OBJS)
+	@make clean -C libft/
+	@make clean -C ft_printf/
+	@$(RM) $(OBJS)
 
 fclean : 
-	make fclean -C libft/
-	make fclean -C ft_printf/
-	$(RM) $(OBJS) $(NAME) $(LIB)
+	@make fclean -C libft/
+	@make fclean -C ft_printf/
+	@$(RM) $(OBJS) $(NAME) $(LIB)
 
 re : 
-	make fclean
-	make all
+	@make fclean
+	@make all
 
 .PHONY: all clean fclean re

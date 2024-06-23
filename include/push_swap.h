@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 10:09:58 by jinseo            #+#    #+#             */
-/*   Updated: 2024/05/08 16:41:22 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/05/21 15:39:28 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct s_node
 {
     int num;
     int rnk;
+    char *base;
     struct s_node   *prev;
     struct s_node   *next;
 } t_node;
@@ -71,7 +72,15 @@ void quick_swap_first(t_stack *a, t_stack *b, int min, int max);
 void quick_swap_no(t_stack *a, t_stack *b, int min, int max);
 int quick_cnt(t_stack *stack, int num);
 //sand.c
-void ft_sand_onestep(t_stack *a, t_stack *b);
-void ft_sand_twostep(t_stack *a, t_stack *b);
-int ft_chunk(int size);
+void	ft_sand_onestep(t_stack *a, t_stack *b, int cnt, int chunk);
+void	ft_sand_twostep(t_stack *a, t_stack *b);
+int	ft_chunk(int size);
+//check.c
+int ft_is_sort(t_stack *a, t_stack *b);
+void	ft_basethree(t_stack *a);
+void	ft_print_base(t_stack *stack);
+void	ft_free_base(t_stack *stack);
+//radix.c
+void radix(t_stack *a, t_stack *b);
+int lst_size(t_stack *stack);
 #endif
