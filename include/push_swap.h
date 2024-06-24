@@ -83,4 +83,9 @@ void	ft_free_base(t_stack *stack);
 //radix.c
 void radix(t_stack *a, t_stack *b);
 int lst_size(t_stack *stack);
+//five_or_less.c
+void three_hard_coding(t_stack *a, t_stack *b);
+int is_max(t_stack *a);
+int ft_is_sort2(t_stack *a);
+
 #endif

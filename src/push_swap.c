@@ -27,7 +27,8 @@ int	main(int argc, char **argv)
 	// ft_printf("\nprint b ------------------\n");
 	// ft_print_base(b);
 	// ft_sand_twostep(a, b);
-	radix(a, b);
+	// radix(a, b);
+	three_hard_coding(a, b);
 	// ft_free_stack(a);
 	// ft_free_stack(b);
 	return (0);
