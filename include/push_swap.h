@@ -52,6 +52,7 @@ void	ft_strfree(char **split_argv, int idx);
 void	ft_argc_input(t_stack *a, t_stack *b, char **argv);
 void	ft_free_all(t_stack *a, t_stack *b);
 //command_push.c
+void	less_size(t_stack *a, t_stack *b);
 void	pb(t_stack *stack_a, t_stack *stack_b);
 void	pa(t_stack *stack_a, t_stack *stack_b);
 //command_swap.c

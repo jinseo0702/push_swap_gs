@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../include/checker_bonus.h"
 
-void	less_size(t_stack *a, t_stack *b)
+void	less_size_b(t_stack *a, t_stack *b)
 {
 	b->size++;
 	a->size--;
 }
 
-void	pb(t_stack *stack_a, t_stack *stack_b)
+int	pb_b(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*temp;
 
 	if (!stack_a->top || !stack_a)
-		return ;
+		return (-1);
 	temp = stack_a->top;
 	stack_a->top = stack_a->top->next;
 	if (!stack_b->top)
@@ -33,7 +33,7 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 		temp->next = NULL;
 		if (stack_a->top)
 			stack_a->top->prev = NULL;
-		less_size(stack_a, stack_b);
+		less_size_b(stack_a, stack_b);
 	}
 	else
 	{
@@ -42,17 +42,17 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 		stack_b->top = temp;
 		if (stack_a->top)
 			stack_a->top->prev = NULL;
-		less_size(stack_a, stack_b);
+		less_size_b(stack_a, stack_b);
 	}
-	ft_printf("pb\n");
+	return (1);
 }
 
-void	pa(t_stack *stack_a, t_stack *stack_b)
+int	pa_b(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*temp;
 
 	if (!stack_b->top || !stack_b)
-		return ;
+		return (-1);
 	temp = stack_b->top;
 	stack_b->top = stack_b->top->next;
 	if (!stack_a->top)
@@ -62,7 +62,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 		temp->next = NULL;
 		if (stack_b->top)
 			stack_b->top->prev = NULL;
-		less_size(stack_b, stack_a);
+		less_size_b(stack_b, stack_a);
 	}
 	else
 	{
@@ -71,7 +71,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 		stack_a->top = temp;
 		if (stack_b->top)
 			stack_b->top->prev = NULL;
-		less_size(stack_b, stack_a);
+		less_size_b(stack_b, stack_a);
 	}
-	ft_printf("pa\n");
+	return (1);
 }

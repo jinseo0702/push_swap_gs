@@ -16,8 +16,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/jinseo/Desktop/push_swap_jinseogit/src",
-      "program": "/home/jinseo/Desktop/push_swap_jinseogit/src/build/Debug/outDebug",
+      "cwd": "/home/jinseo/Desktop/push_swap_jinseogit/checker",
+      "program": "/home/jinseo/Desktop/push_swap_jinseogit/checker/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
