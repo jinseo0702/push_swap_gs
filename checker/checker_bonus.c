@@ -9,35 +9,33 @@ void is_error(t_stack *a, t_stack *b, char *cmd, char *str)
 	exit(1);
 }
 
-void is_cmd(t_stack *a, t_stack *b, char *cmd)
+int is_cmd(t_stack *a, t_stack *b, char *cmd)
 {
-    int f = 0;
     if (!ft_memcmp("sa\n", cmd, 3))
-        f = sa_b(a);
+        return(sa_b(a));
     else if (!ft_memcmp("sb\n", cmd, 3))
-        f = sb_b(b);
+        return(sb_b(b));
     else if (!ft_memcmp("ss\n", cmd, 3))
-        f = ss_b(a, b);
+        return(ss_b(a, b));
     else if (!ft_memcmp("pa\n", cmd, 3))
-        f = pa_b(a, b);
+        return(pa_b(a, b));
     else if (!ft_memcmp("pb\n", cmd, 3))
-        f = pb_b(a, b);
+        return(pb_b(a, b));
     else if (!ft_memcmp("ra\n", cmd, 3))
-        f = ra_b(a);
+        return(ra_b(a));
     else if (!ft_memcmp("rb\n", cmd, 3))
-        f = rb_b(b);
+        return(rb_b(b));
     else if (!ft_memcmp("rr\n", cmd, 3))
-        f = rr_b(a, b);
+        return(rr_b(a, b));
     else if (!ft_memcmp("rra\n", cmd, 4))
-        f = rra_b(a);
+        return(rra_b(a));
     else if (!ft_memcmp("rrb\n", cmd, 4))
-        f = rrb_b(b);
+        return(rrb_b(b));
     else if (!ft_memcmp("rrr\n", cmd, 4))
-        f = rrr_b(a, b);
+        return(rrr_b(a, b));
     else
         is_error(a, b, cmd, "KO");
-    if (f == -1)
-        is_error(a, b, cmd, "KO");
+    return(1);
 }
 
 void input_cmd(t_stack *a, t_stack *b)
@@ -47,7 +45,8 @@ void input_cmd(t_stack *a, t_stack *b)
     cmd = get_next_line(0);
     while (cmd)
     {
-        is_cmd(a, b, cmd);
+        if(is_cmd(a, b, cmd) == -1)
+            is_error(a, b, cmd, "KO");
         if (cmd)
             free(cmd);
         cmd = get_next_line(0);

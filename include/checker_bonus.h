@@ -9,7 +9,7 @@
 # include <unistd.h>
 
 void is_error(t_stack *a, t_stack *b, char *cmd, char *str);
-void is_cmd(t_stack *a, t_stack *b, char *cmd);
+int is_cmd(t_stack *a, t_stack *b, char *cmd);
 void input_cmd(t_stack *a, t_stack *b);
 int	rra_b(t_stack *a);
 int	rrb_b(t_stack *b);
