@@ -6,11 +6,17 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:23:08 by jinseo            #+#    #+#             */
-/*   Updated: 2024/05/21 15:46:47 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/06/24 21:14:02 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+static void	less_size(t_stack *a, t_stack *b)
+{
+	b->size++;
+	a->size--;
+}
 
 void	pb(t_stack *stack_a, t_stack *stack_b)
 {
@@ -27,8 +33,7 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 		temp->next = NULL;
 		if (stack_a->top)
 			stack_a->top->prev = NULL;
-		stack_b->size++;
-		stack_a->size--;
+		less_size(stack_a, stack_b);
 	}
 	else
 	{
@@ -37,8 +42,7 @@ void	pb(t_stack *stack_a, t_stack *stack_b)
 		stack_b->top = temp;
 		if (stack_a->top)
 			stack_a->top->prev = NULL;
-		stack_b->size++;
-		stack_a->size--;
+		less_size(stack_a, stack_b);
 	}
 	ft_printf("pb\n");
 }
@@ -58,8 +62,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 		temp->next = NULL;
 		if (stack_b->top)
 			stack_b->top->prev = NULL;
-		stack_a->size++;
-		stack_b->size--;
+		less_size(stack_b, stack_a);
 	}
 	else
 	{
@@ -68,8 +71,7 @@ void	pa(t_stack *stack_a, t_stack *stack_b)
 		stack_a->top = temp;
 		if (stack_b->top)
 			stack_b->top->prev = NULL;
-		stack_a->size++;
-		stack_b->size--;
+		less_size(stack_b, stack_a);
 	}
 	ft_printf("pa\n");
 }

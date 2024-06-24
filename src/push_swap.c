@@ -20,16 +20,12 @@ int	main(int argc, char **argv)
 	a = ft_creat_stack();
 	b = ft_creat_stack();
 	ft_judge(a, b, argv, argc);
-	// ft_is_sort(a, b);
-	// ft_sand_onestep(a, b, 1, ft_chunk(a->size));
-	// ft_printf("\nprint a ------------------\n");
-	// ft_print_base(a);
-	// ft_printf("\nprint b ------------------\n");
-	// ft_print_base(b);
-	// ft_sand_twostep(a, b);
-	// radix(a, b);
-	three_hard_coding(a, b);
-	// ft_free_stack(a);
-	// ft_free_stack(b);
+	ft_is_sort(a, b);
+	if (a->size < 6)
+		ft_less_five(a, b);
+	else
+		radix(a, b);
+	ft_free_stack(a);
+	ft_free_stack(b);
 	return (0);
 }

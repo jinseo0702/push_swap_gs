@@ -1,47 +1,57 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/24 21:00:59 by jinseo            #+#    #+#             */
+/*   Updated: 2024/06/24 21:02:21 by jinseo           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/push_swap.h"
 
-int ft_is_sort(t_stack *a, t_stack *b)
+int	ft_is_sort(t_stack *a, t_stack *b)
 {
-    t_node *temp;
-    t_node *next;
+	t_node	*temp;
+	t_node	*next;
 
-    temp = a->top;
-    while (temp->next)
-    {
-        next = temp->next;
-        if (temp->rnk > next->rnk)
-            return (1);
-        temp = next;
-    }
-    ft_free_stack(a);
-    ft_free_stack(b);
-    exit(1);
+	temp = a->top;
+	while (temp->next)
+	{
+		next = temp->next;
+		if (temp->rnk > next->rnk)
+			return (1);
+		temp = next;
+	}
+	ft_free_stack(a);
+	ft_free_stack(b);
+	exit(1);
 }
 
 void	ft_basethree(t_stack *a)
 {
-	t_node	*cur;
-    static char base[33];
-	static int		num;
-	static int		idx;
-
+	t_node		*cur;
+	static char	base[33];
+	static int	num;
+	static int	idx;
 
 	cur = a->top;
 	while (cur)
 	{
 		num = cur->rnk;
-        idx = 0;
+		idx = 0;
 		while (num > 0)
 		{
-            base[idx] = (num % 2) + 48;
-            num /= 2;
-            idx++;
+			base[idx] = (num % 2) + 48;
+			num /= 2;
+			idx++;
 		}
-        cur->base = (char *)ft_calloc(33, sizeof(char));
-        ft_memcpy(cur->base, base, idx);
+		cur->base = (char *)ft_calloc(33, sizeof(char));
+		ft_memcpy(cur->base, base, idx);
 		cur = cur->next;
 	}
-    // ft_print_base(a);
 }
 
 void	ft_print_base(t_stack *stack)

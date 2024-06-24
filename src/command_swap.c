@@ -16,7 +16,7 @@ void	sa(t_stack *a)
 {
 	t_node	*temp;
 
-	if (!a || !a->top)
+	if (!a || !a->top || a->size == 1)
 		return ;
 	temp = a->top;
 	a->top = a->top->next;
@@ -31,7 +31,7 @@ void	sb(t_stack *b)
 {
 	t_node	*temp;
 
-	if (!b || !b->top)
+	if (!b || !b->top || b->size == 1)
 		return ;
 	temp = b->top;
 	b->top = b->top->next;
@@ -47,7 +47,7 @@ void	ss(t_stack *a, t_stack *b)
 	t_node	*temp_a;
 	t_node	*temp_b;
 
-	if (!a || !a->top || !b || !b->top)
+	if (!a || !a->top || a->size == 1 || !b || !b->top || b->size == 1)
 		return ;
 	temp_a = a->top;
 	a->top = a->top->next;
