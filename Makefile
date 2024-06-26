@@ -15,18 +15,19 @@ src/ft_atoi_re.c \
 src/sand.c \
 src/check.c \
 src/radix.c \
-src/five_or_less.c \
-checker/checker_bonus.c \
+src/five_or_less.c
+
+SRCSBONUS = checker/checker_bonus.c \
 checker/command_double_reverse_bonus.c \
 checker/command_push_bonus.c \
 checker/command_reverse_bonus.c \
 checker/command_swap_bonus.c \
 
 OBJS = $(SRCS:.c=.o)
-OBJSBONUS = $(SRCS:_bonus.c=_bonus.o)
+OBJSBONUS = $(SRCSBONUS:_bonus.c=_bonus.o)
 NAME = push_swap
 BONUS = checker_linux
-LIB = push_swap.a
+LIB = libpush_swap.a
 LIBBONUS = checker_linux.a
 
 all : $(NAME)
@@ -36,38 +37,33 @@ $(NAME) : $(LIB)
 	@make -C libft/
 	@make -C ft_printf/
 	@$(CC) $(CFLAG) -o $@ $^ -L libft/ -lft -L ft_printf/ -lftprintf
-	touch $@
+	@touch $@
 
-# $(BONUS)
-# 	@make all
-# 	@
-
-
+$(BONUS) : $(LIBBONUS)
+	@make all
+	@$(CC) $(CFLAG) -o $@ $^ libpush_swap.a -L libft/ -lft -L ft_printf/ -lftprintf
+	@touch $@
 
 $(LIB) : $(OBJS)
 	@$(AR) $@ $^
 
-%.o : %.c
-	@$(CC) $(CFLAG) -c $< -o $@
-
 $(LIBBONUS) : $(OBJSBONUS)
 	@$(AR) $@ $^
-
-%_bonus.o : %_bonus.c
-	@$(CC) $(CFLAG) -c $< -o $@
 
 clean :
 	@make clean -C libft/
 	@make clean -C ft_printf/
 	@$(RM) $(OBJS)
+	@$(RM) $(OBJSBONUS)
 
 fclean : 
 	@make fclean -C libft/
 	@make fclean -C ft_printf/
 	@$(RM) $(OBJS) $(NAME) $(LIB)
+	@$(RM) $(OBJS) $(BONUS) $(LIBBONUS)
 
 re : 
 	@make fclean
 	@make all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

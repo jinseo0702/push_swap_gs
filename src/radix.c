@@ -27,6 +27,22 @@ int	lst_size(t_stack *stack)
 	return (num);
 }
 
+int	ft_is_sort3(t_stack *b)
+{
+	t_node	*temp;
+	t_node	*next;
+
+	temp = b->top;
+	while (temp->next)
+	{
+		next = temp->next;
+		if (temp->rnk < next->rnk)
+			return (1);
+		temp = next;
+	}
+	return (0);
+}
+
 void	radix(t_stack *a, t_stack *b)
 {
 	int		len;

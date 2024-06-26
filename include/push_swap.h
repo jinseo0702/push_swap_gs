@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 10:09:58 by jinseo            #+#    #+#             */
-/*   Updated: 2024/06/24 21:27:37 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/06/26 16:59:44 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	ft_free_base(t_stack *stack);
 //radix.c
 void	radix(t_stack *a, t_stack *b);
 int		lst_size(t_stack *stack);
+int		ft_is_sort3(t_stack *b);
 //five_or_less.c
 void	three_hard_coding(t_stack *a, t_stack *b);
 int		is_max(t_stack *a);
