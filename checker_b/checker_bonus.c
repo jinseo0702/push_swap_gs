@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:53:26 by jinseo            #+#    #+#             */
-/*   Updated: 2024/06/27 22:39:12 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/06/27 23:08:18 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ void	input_cmd(t_stack *a, t_stack *b)
 	cmd = get_next_line(0);
 	while (cmd)
 	{
-		if (is_cmd(a, b, cmd) == -1)
-			is_error(a, b, cmd, "KO");
+		is_cmd(a, b, cmd);
 		if (cmd)
 			free(cmd);
 		cmd = get_next_line(0);

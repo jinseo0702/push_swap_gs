@@ -46,24 +46,9 @@ int	rrb_b(t_stack *b)
 
 int	rrr_b(t_stack *a, t_stack *b)
 {
-	t_node	*temp_a;
-	t_node	*temp_b;
-
-	if (a->size <= 1 || b->size <= 1)
-		return (-1);
-	temp_a = a->bottom;
-	a->bottom = a->bottom->prev;
-	a->bottom->next = NULL;
-	a->top->prev = temp_a;
-	temp_a->next = a->top;
-	a->top = temp_a;
-	a->top->prev = NULL;
-	temp_b = b->bottom;
-	b->bottom = b->bottom->prev;
-	b->bottom->next = NULL;
-	b->top->prev = temp_b;
-	temp_b->next = b->top;
-	b->top = temp_b;
-	b->top->prev = NULL;
+	if (a->size > 1)
+		rra_b(a);
+	if (b->size > 1)
+		rrb_b(b);
 	return (1);
 }
