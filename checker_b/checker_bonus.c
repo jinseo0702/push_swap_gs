@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 02:53:26 by jinseo            #+#    #+#             */
-/*   Updated: 2024/06/27 17:26:08 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/06/27 22:39:12 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	is_cmd(t_stack *a, t_stack *b, char *cmd)
 	else if (!ft_memcmp("rrr\n", cmd, 4))
 		return (rrr_b(a, b));
 	else
-		is_error(a, b, cmd, "KO");
+		is_error(a, b, cmd, "Error");
 	return (1);
 }
 
@@ -74,20 +74,12 @@ int	main(int argc, char **argv)
 	a = ft_creat_stack();
 	b = ft_creat_stack();
 	ft_judge(a, b, argv, argc);
-	if (argc == 2)
-	{
-		ft_free_stack(a);
-		ft_free_stack(b);
-	}
+	input_cmd(a, b);
+	if (!ft_is_sort2(a) && b->top == NULL)
+		is_error(a, b, NULL, "OK");
 	else
 	{
-		input_cmd(a, b);
-		if (!ft_is_sort2(a) && b->top == NULL)
-			is_error(a, b, NULL, "OK");
-		else
-		{
-			is_error(a, b, NULL, "KO");
-		}
+		is_error(a, b, NULL, "KO");
 	}
 	return (0);
 }

@@ -49,6 +49,12 @@ $(LIB) : $(OBJS)
 $(LIBBONUS) : $(OBJSBONUS)
 	@$(AR) $@ $^
 
+%.o : %.c
+	@$(CC) $(CFLAG) -c $< -o $@
+
+%_bonus.o : _bonus.c
+	@$(CC) $(CFLAG) -c $< -o $@
+
 clean :
 	@make clean -C libft/
 	@make clean -C ft_printf/

@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:47:30 by jinseo            #+#    #+#             */
-/*   Updated: 2024/06/27 19:47:04 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/05/21 15:30:16 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ void	ft_argc_input(t_stack *a, t_stack *b, char **argv)
 		if (ft_strncmp(argv[idx], "", 1) == 0)
 			ft_free_all(a, b);
 		sp_av = ft_split(argv[idx], ' ');
+		if (sp_av[0] == 0)
+		{
+			ft_strfree(sp_av, 0);
+			ft_free_all(a, b);
+		}
 		spi = -1;
 		while (sp_av[++spi])
 			ft_insert_node(a, ft_new_node(ft_atoi_re(b, a, sp_av, spi), a));

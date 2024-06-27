@@ -17,6 +17,8 @@ int	ft_is_sort(t_stack *a, t_stack *b)
 	t_node	*temp;
 	t_node	*next;
 
+	if (a->top == NULL)
+		ft_free_all(a, b);
 	temp = a->top;
 	while (temp->next)
 	{
