@@ -1,1 +1,0 @@
-cc -Wall -Wextra -Werror -o test *.c ../push_swap.a ../libft/libft.a ../ft_printf/libftprintf.a

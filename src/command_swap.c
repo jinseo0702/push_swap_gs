@@ -6,11 +6,17 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 11:22:53 by jinseo            #+#    #+#             */
-/*   Updated: 2024/05/21 14:10:54 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/06/27 17:24:59 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
+static void	if_stack_size2(t_stack *stack)
+{
+	stack->bottom = stack->top->next;
+	stack->bottom->next = NULL;
+}
 
 void	sa(t_stack *a)
 {
@@ -24,6 +30,8 @@ void	sa(t_stack *a)
 	temp->next = a->top->next;
 	a->top->next = temp;
 	a->top->prev = NULL;
+	if (a->size == 2)
+		if_stack_size2(a);
 	ft_printf("sa\n");
 }
 
@@ -39,6 +47,8 @@ void	sb(t_stack *b)
 	temp->next = b->top->next;
 	b->top->next = temp;
 	b->top->prev = NULL;
+	if (b->size == 2)
+		if_stack_size2(b);
 	ft_printf("sb\n");
 }
 
@@ -61,5 +71,9 @@ void	ss(t_stack *a, t_stack *b)
 	temp_b->next = b->top->next;
 	b->top->next = temp_b;
 	b->top->prev = NULL;
+	if (a->size == 2)
+		if_stack_size2(a);
+	if (b->size == 2)
+		if_stack_size2(b);
 	ft_printf("ss\n");
 }

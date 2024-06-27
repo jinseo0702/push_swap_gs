@@ -74,10 +74,6 @@ void	ft_free_stack_split(t_stack *a, t_stack *b, char **split_argv, int idx);
 void	quick_swap_first(t_stack *a, t_stack *b, int min, int max);
 void	quick_swap_no(t_stack *a, t_stack *b, int min, int max);
 int		quick_cnt(t_stack *stack, int num);
-//sand.c
-void	ft_sand_onestep(t_stack *a, t_stack *b, int cnt, int chunk);
-void	ft_sand_twostep(t_stack *a, t_stack *b);
-int		ft_chunk(int size);
 //check.c
 int		ft_is_sort(t_stack *a, t_stack *b);
 void	ft_basethree(t_stack *a);

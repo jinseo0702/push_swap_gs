@@ -12,23 +12,22 @@ src/command_swap.c \
 src/command_reverse.c \
 src/command_double_reverse.c \
 src/ft_atoi_re.c \
-src/sand.c \
 src/check.c \
 src/radix.c \
 src/five_or_less.c
 
-SRCSBONUS = checker/checker_bonus.c \
-checker/command_double_reverse_bonus.c \
-checker/command_push_bonus.c \
-checker/command_reverse_bonus.c \
-checker/command_swap_bonus.c \
+SRCSBONUS = checker_b/checker_bonus.c \
+checker_b/command_double_reverse_bonus.c \
+checker_b/command_push_bonus.c \
+checker_b/command_reverse_bonus.c \
+checker_b/command_swap_bonus.c \
 
 OBJS = $(SRCS:.c=.o)
 OBJSBONUS = $(SRCSBONUS:_bonus.c=_bonus.o)
 NAME = push_swap
-BONUS = checker_linux
+BONUS = checker
 LIB = libpush_swap.a
-LIBBONUS = checker_linux.a
+LIBBONUS = checker.a
 
 all : $(NAME)
 bonus : $(BONUS)
@@ -60,7 +59,7 @@ fclean :
 	@make fclean -C libft/
 	@make fclean -C ft_printf/
 	@$(RM) $(OBJS) $(NAME) $(LIB)
-	@$(RM) $(OBJS) $(BONUS) $(LIBBONUS)
+	@$(RM) $(OBJSBONUS) $(BONUS) $(LIBBONUS)
 
 re : 
 	@make fclean

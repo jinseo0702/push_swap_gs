@@ -6,7 +6,7 @@
 /*   By: jinseo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 16:47:30 by jinseo            #+#    #+#             */
-/*   Updated: 2024/05/21 15:30:16 by jinseo           ###   ########.fr       */
+/*   Updated: 2024/06/27 19:47:04 by jinseo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	ft_judge(t_stack *stacka, t_stack *stackb, char **argv, int argc)
 		ft_argc_input(stacka, stackb, argv);
 	else
 	{
-		ft_putendl_fd("Error", 2);
 		ft_free_stack(stacka);
 		ft_free_stack(stackb);
 		exit(1);
